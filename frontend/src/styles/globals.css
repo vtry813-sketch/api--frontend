@@ -1,0 +1,93 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary-500 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 
+           text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 
+           transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-700 hover:bg-dark-600 border border-dark-600 
+           text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300
+           hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply bg-dark-800/50 backdrop-blur-sm border border-dark-700 rounded-xl 
+           p-6 transition-all duration-300 hover:border-primary-500/30 
+           hover:shadow-2xl hover:shadow-primary-500/10;
+  }
+
+  .input-field {
+    @apply bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 
+           text-white placeholder-dark-400 focus:outline-none 
+           focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 
+           transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-primary-300 to-primary-400 
+           bg-clip-text text-transparent bg-[length:200%_auto] 
+           animate-gradient;
+  }
+
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  @apply w-12 h-12 border-4 border-dark-600 border-t-primary-500 
+         rounded-full animate-spin;
+}
+
+/* Code block styling */
+.code-block {
+  @apply bg-dark-900 border border-dark-700 rounded-lg p-4 font-mono 
+         text-sm overflow-x-auto;
+}
+
+.code-block pre {
+  @apply m-0;
+}
